@@ -14,5 +14,10 @@
             <artifactId>thumbnailator</artifactId>
             <version>[0.4, 0.5)</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations-java5</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 </project>

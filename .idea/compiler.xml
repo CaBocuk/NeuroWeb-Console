@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="NeuroWeb Console" />
+        <module name="NeuroWeb-Console" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="NeuroWeb Console" target="1.5" />
+      <module name="NeuroWeb-Console" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
