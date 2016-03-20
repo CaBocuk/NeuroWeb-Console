@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class InputNeuron implements Serializable{
     private double weights[][]; // Weight coefficients of synapses
-    private Double output;
+    private double output;
 
     public InputNeuron(double weights[][]){
         this.weights = weights;
@@ -28,11 +28,15 @@ public class InputNeuron implements Serializable{
         return weights[x][y];
     }
 
-    public Double getOutput() {
+    public double getOutput() {
         return output;
     }
 
-    public void setOutput(Double output) {
+    public void setOutput(double output) {
         this.output = output;
+    }
+
+    public void changeOutputBy(double offset){
+        output += offset;
     }
 }

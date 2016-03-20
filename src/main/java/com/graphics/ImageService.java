@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class ImageService {
 
-    private final double MAX_BLACK = 0.25; // uses for ImageService.howBlackIsIt();
+    private static final double MAX_BLACK = 0.25; // uses for ImageService.howBlackIsIt();
     // if greater than this value => not black.
 
     // getting the color of particular pixel
@@ -28,7 +28,7 @@ public class ImageService {
 
     // trying to investigate how black is the color
     public static double howBlackIsIt(int[] rgb) {
-        double[] magicCoefficients = {0.2126, 0.7152, 0.722}; // I don't know why they are like this.
+        double[] magicCoefficients = {0.2126, 0.7152, 0.0722}; // I don't know why they are like this.
         // Link: http://stackoverflow.com/questions/9780632/how-do-i-determine-if-a-color-is-closer-to-white-or-black
 
         double sum = 0;
@@ -38,7 +38,7 @@ public class ImageService {
         }
 
         // if sum is closer to 0 => it seems to be black. If closer to 255 => white.
-        return 1 - sum / 255;
+        return sum / 255;
     }
 
     public static boolean isBlack(int[] rgb) {
@@ -70,7 +70,12 @@ public class ImageService {
             }
         }
 
-        makeSquaredDimension(minX, minY, maxX, maxY, wid, hei);
+        int ret[] = makeSquaredDimension(minX, minY, maxX, maxY, wid, hei);
+        minX = ret[0];
+        minY = ret[1];
+        maxX = ret[2];
+        maxY = ret[3];
+
         image = image.getSubimage(minX, minY, maxX - minX, maxY - minY);
         try {
             image = resize(image, newWid, newHei);
@@ -81,20 +86,42 @@ public class ImageService {
         return image;
     }
 
-    private static void makeSquaredDimension(int minX, int minY, int maxX, int maxY, int wid, int hei) {
-
+    private static int[] makeSquaredDimension(int minX, int minY, int maxX, int maxY, int wid, int hei) {
+        int ret[] = new int[4];
         int curWid = maxX - minX;
         int curHei = maxY - minY;
         int diff = Math.abs((curWid - curHei)) / 2;
 
         if (curWid > curHei) {
-            countSquaredCoordinates(minY, maxY, hei, diff);
+            int a[] = countSquaredCoordinates(minY, maxY, hei, diff);
+            ret[0] = minX;
+            ret[1] = a[0];
+            ret[2] = maxY;
+            ret[3] = a[1];
+            if(Math.abs((curWid - curHei)) % 2 == 1){
+                if(ret[1] > 0)
+                    ret[1]--;
+                else
+                    ret[3]++;
+            }
+
         } else if (curWid < curHei) {
-            countSquaredCoordinates(minX, maxX, hei, diff);
+            int a[] = countSquaredCoordinates(minX, maxX, hei, diff);
+            ret[0] = a[0];
+            ret[1] = minY;
+            ret[2] = a[1];
+            ret[3] = maxY;
+            if(Math.abs((curWid - curHei)) % 2 == 1) {
+                if (ret[1] > 0)
+                    ret[0]--;
+                else
+                    ret[2]++;
+            }
         }
+        return ret;
     }
 
-    private static void countSquaredCoordinates(int min, int max, int hei, int diff) {
+    private static int[] countSquaredCoordinates(int min, int max, int hei, int diff) {
         if (min >= diff && (hei - max) >= diff) {
             min -= diff;
             max += diff;
@@ -108,13 +135,15 @@ public class ImageService {
             }
         } else if ((hei - max) < diff) {
             if (min >= diff * 2 - (hei - max)) {
-                max = hei;
                 min -= diff * 2 - (hei - max);
+                max = hei;
             } else {
                 min = 0;
                 max = hei;
             }
         }
+        int ret[] = {min, max};
+        return ret;
     }
 
     public BufferedImage makeSomeNoise(BufferedImage image) {

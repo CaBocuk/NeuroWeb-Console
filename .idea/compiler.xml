@@ -28,7 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="NeuroWeb Console" target="1.5" />
-      <module name="NeuroWeb-Console" target="1.5" />
+      <module name="NeuroWeb-Console" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
