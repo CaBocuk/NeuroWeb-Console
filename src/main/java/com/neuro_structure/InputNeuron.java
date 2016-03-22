@@ -10,6 +10,10 @@ public class InputNeuron implements Serializable{
     private double weights[][]; // Weight coefficients of synapses
     private double output;
 
+    private int learnedImages;
+
+    private final double LEARN_MAX = 1d;
+
     public InputNeuron(double weights[][]){
         this.weights = weights;
         output = 0d;
@@ -26,6 +30,30 @@ public class InputNeuron implements Serializable{
 
     public double getWeightAt(int x, int y){
         return weights[x][y];
+    }
+
+    public int getLearnedImages() {
+        return learnedImages;
+    }
+
+    public void imageLearned(){
+        learnedImages++;
+    }
+
+    public void increaseWeight(int x, int y){
+        double weight = weights[x][y];
+        weight *= learnedImages++;
+        weight += LEARN_MAX;
+        weight /= learnedImages;
+        weights[x][y] = weight;
+    }
+
+    public void decreaseWeight(int x, int y){
+        double weight = weights[x][y];
+        weight *= learnedImages++;
+        weight -= LEARN_MAX;
+        weight /= learnedImages;
+        weights[x][y] = weight;
     }
 
     public double getOutput() {

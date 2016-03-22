@@ -17,7 +17,8 @@ public class Main {
         List<File> files = Arrays.asList(folder.listFiles());
         files.stream().forEach((image) -> {
             try {
-                web.learnImage(ImageIO.read(image), Integer.parseInt(image.getName().charAt(0)+""));
+                //web.learnImage(ImageIO.read(image), Integer.parseInt(image.getName().charAt(0)+""));
+                web.learnImageExperiment(ImageIO.read(image), Integer.parseInt(image.getName().charAt(0)+""));
             } catch (IOException e) {
                 e.printStackTrace();
             }

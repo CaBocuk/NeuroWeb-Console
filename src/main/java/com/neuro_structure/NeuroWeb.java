@@ -43,9 +43,9 @@ public class NeuroWeb implements Serializable {
 
         // resize the image if necessary
         if (image.getWidth() != imageSize || image.getHeight() != imageSize) {
-           // try {
-                image = getCutImage(image, imageSize, imageSize);
-                //image = resize(image, imageSize, imageSize);
+            // try {
+            image = getCutImage(image, imageSize, imageSize);
+            //image = resize(image, imageSize, imageSize);
            /* } catch (IOException e1) {
                 System.out.println("The image was resized incorrectly");
             }*/
@@ -63,7 +63,35 @@ public class NeuroWeb implements Serializable {
                 }
             }
         }
-        System.out.println("Learned "+answer);
+        System.out.println("Learned " + answer);
+    }
+
+    public void learnImageExperiment(BufferedImage image, int answer) {
+        InputNeuron neuron = firstNeuroLayer.get(answer);
+
+        // resize the image if necessary
+        if (image.getWidth() != imageSize || image.getHeight() != imageSize) {
+            // try {
+            image = getCutImage(image, imageSize, imageSize);
+            //image = resize(image, imageSize, imageSize);
+           /* } catch (IOException e1) {
+                System.out.println("The image was resized incorrectly");
+            }*/
+        }
+
+        // start loop through every pixel in the image
+        for (int x = 0; x < imageSize; x++) {
+            for (int y = 0; y < imageSize; y++) {
+                int[] rgb = getPixelRGB(image, x, y);
+
+                if (isBlack(rgb)) {
+                    neuron.increaseWeight(x, y);
+                } else {
+                    neuron.decreaseWeight(x, y);
+                }
+            }
+        }
+        System.out.println("Learned " + answer);
     }
 
     public int recognizeImage(BufferedImage image) {
@@ -112,19 +140,19 @@ public class NeuroWeb implements Serializable {
                 }
             }
 
-            for(int i = 0; i < M; i++) {
+            for (int i = 0; i < M; i++) {
                 secondNeuroLayer.get(i).setOutput(secondNeuroLayer.get(i).getSum());
-                if(outputs[i] != secondNeuroLayer.get(i).getOutput())
+                if (outputs[i] != secondNeuroLayer.get(i).getOutput())
                     allEqual = false;
             }
 
 
-        } while(!allEqual && ++count < 25);
+        } while (!allEqual && ++count < 25);
 
         double max = Double.MIN_VALUE;
         int index = -1;
-        for(int i = 0; i < M; i++){
-            if(secondNeuroLayer.get(i).getOutput() > max){
+        for (int i = 0; i < M; i++) {
+            if (secondNeuroLayer.get(i).getOutput() > max) {
                 max = secondNeuroLayer.get(i).getOutput();
                 index = i;
             }
@@ -136,7 +164,7 @@ public class NeuroWeb implements Serializable {
     public void initializeCleanNeurons() {
         firstNeuroLayer = new ArrayList<InputNeuron>();
         secondNeuroLayer = new ArrayList<Neuron>();
-        for(int i = 0; i < M; i++){
+        for (int i = 0; i < M; i++) {
             firstNeuroLayer.add(new InputNeuron(imageSize, imageSize));
             secondNeuroLayer.add(new Neuron());
         }
@@ -157,7 +185,7 @@ public class NeuroWeb implements Serializable {
             e.printStackTrace();
             initializeCleanNeurons();
         }
-        for(int i = 0; i < M; i++){
+        for (int i = 0; i < M; i++) {
             secondNeuroLayer.add(new Neuron());
         }
     }
