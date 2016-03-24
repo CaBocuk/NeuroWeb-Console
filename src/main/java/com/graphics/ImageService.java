@@ -89,16 +89,15 @@ public class ImageService {
             Graphics2D g = newImage.createGraphics();
             g.setColor(Color.white);
             g.fillRect(0, 0, diff, curHei);
-            g.drawImage(image, diff + 1, 0, null);
-            g.fillRect(diff + curWid + 1, 0, curHei, curHei);
+            g.drawImage(image, diff, 0, null);
+            g.fillRect(diff + curWid, 0, curHei, curHei);
             image = newImage;
         } else {
             BufferedImage newImage = config.createCompatibleImage(curWid, curWid);
             Graphics2D g = newImage.createGraphics();
             g.setColor(Color.white);
             g.fillRect(0, 0, curWid, diff);
-            g.drawImage(image, 0, diff + 1, null);
-            g.fillRect(0, diff + curHei + 1, curWid, curWid);
+            g.drawImage(image, 0, diff, null);
             image = newImage;
         }
 
@@ -111,7 +110,7 @@ public class ImageService {
         return image;
     }
 
-    private static int[] makeSquaredDimension(int minX, int minY, int maxX, int maxY, int wid, int hei) {
+    /*private static int[] makeSquaredDimension(int minX, int minY, int maxX, int maxY, int wid, int hei) {
         int ret[] = new int[4];
         int curWid = maxX - minX;
         int curHei = maxY - minY;
@@ -169,7 +168,7 @@ public class ImageService {
         }
         int ret[] = {min, max};
         return ret;
-    }
+    }*/
 
     public BufferedImage makeSomeNoise(BufferedImage image) {
         double[][] aperture = new double[5][5];

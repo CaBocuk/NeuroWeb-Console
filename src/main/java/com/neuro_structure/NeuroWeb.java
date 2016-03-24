@@ -3,6 +3,7 @@ package com.neuro_structure;
 import static com.graphics.ImageService.*;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
@@ -92,6 +93,26 @@ public class NeuroWeb implements Serializable {
             }
         }
         System.out.println("Learned " + answer);
+
+        /*for(int i = 0; i < M; i++) {
+            final GraphicsConfiguration config = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+            BufferedImage newImage = config.createCompatibleImage(imageSize, imageSize);
+            Graphics2D g = newImage.createGraphics();
+            for (int x = 0; x < imageSize; x++) {
+                for (int y = 0; y < imageSize; y++) {
+                    double coef = (1 - firstNeuroLayer.get(i).getWeightAt(x, y));
+                    coef = coef >= 0 && coef <= 1 ? coef : coef < 0 ? 0 : 1;
+                    int a = (int) (255 * coef);
+                    g.setColor(new Color(a, a, a));
+                    g.drawOval(x, y, 1, 1);
+                }
+            }
+            try {
+                ImageIO.write(newImage, "PNG", new File("img" + i + ".png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }*/
     }
 
     public int recognizeImage(BufferedImage image) {
