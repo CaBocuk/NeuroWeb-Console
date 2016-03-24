@@ -2,8 +2,10 @@ package com.graphics;
 
 import net.coobird.thumbnailator.Thumbnails;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
@@ -12,7 +14,7 @@ import java.util.Random;
  */
 public class ImageService {
 
-    private static final double MAX_BLACK = 0.25; // uses for ImageService.howBlackIsIt();
+    private static final double MAX_BLACK = 0.1; // uses for ImageService.howBlackIsIt();
     // if greater than this value => not black.
 
     // getting the color of particular pixel
@@ -70,13 +72,36 @@ public class ImageService {
             }
         }
 
-        int ret[] = makeSquaredDimension(minX, minY, maxX, maxY, wid, hei);
+        /*int ret[] = makeSquaredDimension(minX, minY, maxX, maxY, wid, hei);
         minX = ret[0];
         minY = ret[1];
         maxX = ret[2];
-        maxY = ret[3];
+        maxY = ret[3];*/
 
-        image = image.getSubimage(minX, minY, maxX - minX, maxY - minY);
+        int curWid = maxX - minX;
+        int curHei = maxY - minY;
+        image = image.getSubimage(minX, minY, curWid, curHei);
+
+        final GraphicsConfiguration config = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+        int diff = Math.abs((curWid - curHei)) / 2;
+        if (curHei > curWid) {
+            BufferedImage newImage = config.createCompatibleImage(curHei, curHei);
+            Graphics2D g = newImage.createGraphics();
+            g.setColor(Color.white);
+            g.fillRect(0, 0, diff, curHei);
+            g.drawImage(image, diff + 1, 0, null);
+            g.fillRect(diff + curWid + 1, 0, curHei, curHei);
+            image = newImage;
+        } else {
+            BufferedImage newImage = config.createCompatibleImage(curWid, curWid);
+            Graphics2D g = newImage.createGraphics();
+            g.setColor(Color.white);
+            g.fillRect(0, 0, curWid, diff);
+            g.drawImage(image, 0, diff + 1, null);
+            g.fillRect(0, diff + curHei + 1, curWid, curWid);
+            image = newImage;
+        }
+
         try {
             image = resize(image, newWid, newHei);
         } catch (IOException e) {
@@ -98,8 +123,8 @@ public class ImageService {
             ret[1] = a[0];
             ret[2] = maxY;
             ret[3] = a[1];
-            if(Math.abs((curWid - curHei)) % 2 == 1){
-                if(ret[1] > 0)
+            if (Math.abs((curWid - curHei)) % 2 == 1) {
+                if (ret[1] > 0)
                     ret[1]--;
                 else
                     ret[3]++;
@@ -111,7 +136,7 @@ public class ImageService {
             ret[1] = minY;
             ret[2] = a[1];
             ret[3] = maxY;
-            if(Math.abs((curWid - curHei)) % 2 == 1) {
+            if (Math.abs((curWid - curHei)) % 2 == 1) {
                 if (ret[1] > 0)
                     ret[0]--;
                 else
@@ -174,15 +199,114 @@ public class ImageService {
                         }
                     }
                 }
-                if(sum > (double)(random.nextInt(400)) / 100){
+                if (sum > (double) (random.nextInt(400)) / 100) {
                     image.setRGB(x, y, Color.BLACK.getRGB());
-                }else{
+                } else {
                     image.setRGB(x, y, Color.WHITE.getRGB());
                 }
             }
         }
 
         return image;
+    }
+
+    public static BufferedImage removeNoise(BufferedImage image) {
+        //TODO
+        return null;
+    }
+
+    /**
+     * TODO REFACTORING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     *
+     * @param image
+     * @param newWid
+     * @param newHei
+     */
+    public static BufferedImage[] getMappedImage(BufferedImage image, int newWid, int newHei) {
+        BufferedImage[] ret = new BufferedImage[5];
+        image = cutTheFrame(image);
+        ItemType sectionTypes[] = {ItemType.IGNORE, ItemType.IGNORE, ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.LETTER, ItemType.LETTER, ItemType.IGNORE, ItemType.NUMBER};
+
+        int sections = 0;
+        int numbers = 0;
+        boolean enteredSection = false;
+        int curSectionMinX = 0;
+        for (int x = 0; x < image.getWidth() && sections < 10; x++) {
+            int blacks = 0;
+            for (int y = 0; y < image.getHeight(); y++) {
+                if (isBlack(getPixelRGB(image, x, y))) {
+                    blacks++;
+                }
+            }
+            if ((double) (blacks) / image.getHeight() > 0.05 && !enteredSection) {
+                enteredSection = true;
+                curSectionMinX = x;
+            }
+            if ((double) (blacks) / image.getHeight() <= 0.05 && enteredSection) {
+                enteredSection = false;
+                if (sectionTypes[sections].equals(ItemType.NUMBER)){
+                    BufferedImage subImg = image.getSubimage(curSectionMinX, 0, x - curSectionMinX, image.getHeight());
+                    subImg = getCutImage(subImg, newWid, newHei);
+                    ret[numbers] = subImg;
+                    try {
+                        ImageIO.write(subImg, "PNG", new File(numbers+".png"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    numbers++;
+                }
+                sections++;
+            }
+        }
+
+        return ret;
+    }
+
+    private static BufferedImage cutTheFrame(BufferedImage image) {
+        int wid = image.getWidth();
+        int hei = image.getHeight();
+
+        int minX = 0;
+        int minY = 0;
+        int maxX = wid;
+        int maxY = hei;
+
+        boolean foundFrame = false;
+
+        // look for left side of frame
+        for (int x = 0; x < wid / 10; x++) {
+            if (isBlack(getPixelRGB(image, x, hei / 2))) {
+                foundFrame = true;
+            } else if (!isBlack(getPixelRGB(image, x, hei / 2)) && foundFrame) {
+                minX = x + 5;
+                break;
+            }
+        }
+
+        foundFrame = false;
+        // look for upper of the frame
+        for (int y = hei / 2; y > 0; y--) {
+            if (isBlack(getPixelRGB(image, minX, y))) {
+                minY = y + 5;
+                break;
+            }
+        }
+
+        for (int x = wid / 2; x < wid; x++) {
+            if (isBlack(getPixelRGB(image, x, minY))) {
+                maxX = x - 5;
+                break;
+            }
+        }
+
+        for (int y = hei / 2; y < hei; y++) {
+            if (isBlack(getPixelRGB(image, maxX, y))) {
+                maxY = y - 5;
+
+            }
+        }
+
+        return image.getSubimage(minX, minY, maxX - minX, maxY - minY);
     }
 
     // resizing of image using Thumbnailator
