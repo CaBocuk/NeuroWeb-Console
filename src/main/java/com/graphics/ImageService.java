@@ -222,6 +222,15 @@ public class ImageService {
      * @param newHei
      */
     public static BufferedImage[] getMappedImage(BufferedImage image, int newWid, int newHei) {
+        if(image.getHeight() < 100){
+            double coeff = 100. / image.getHeight();
+            try {
+                image = resize(image, (int)(image.getWidth()*coeff), (int)(image.getHeight()*coeff));
+                ImageIO.write(image, "JPG", new File("test_5.jpg"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         BufferedImage[] ret = new BufferedImage[5];
         image = cutTheFrame(image);
         ItemType sectionTypes[] = {ItemType.IGNORE, ItemType.IGNORE, ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.LETTER, ItemType.LETTER, ItemType.IGNORE, ItemType.NUMBER};
@@ -243,12 +252,12 @@ public class ImageService {
             }
             if ((double) (blacks) / image.getHeight() <= 0.05 && enteredSection) {
                 enteredSection = false;
-                if (sectionTypes[sections].equals(ItemType.NUMBER)){
+                if (sectionTypes[sections].equals(ItemType.NUMBER)) {
                     BufferedImage subImg = image.getSubimage(curSectionMinX, 0, x - curSectionMinX, image.getHeight());
                     subImg = getCutImage(subImg, newWid, newHei);
                     ret[numbers] = subImg;
                     try {
-                        ImageIO.write(subImg, "PNG", new File(numbers+".png"));
+                        ImageIO.write(subImg, "PNG", new File(numbers + ".png"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -277,7 +286,7 @@ public class ImageService {
             if (isBlack(getPixelRGB(image, x, hei / 2))) {
                 foundFrame = true;
             } else if (!isBlack(getPixelRGB(image, x, hei / 2)) && foundFrame) {
-                minX = x + 5;
+                minX = x + 1;
                 break;
             }
         }
@@ -286,21 +295,21 @@ public class ImageService {
         // look for upper of the frame
         for (int y = hei / 2; y > 0; y--) {
             if (isBlack(getPixelRGB(image, minX, y))) {
-                minY = y + 5;
+                minY = y + 1;
                 break;
             }
         }
 
         for (int x = wid / 2; x < wid; x++) {
             if (isBlack(getPixelRGB(image, x, minY))) {
-                maxX = x - 5;
+                maxX = x - 1;
                 break;
             }
         }
 
         for (int y = hei / 2; y < hei; y++) {
             if (isBlack(getPixelRGB(image, maxX, y))) {
-                maxY = y - 5;
+                maxY = y - 1;
 
             }
         }
@@ -311,5 +320,32 @@ public class ImageService {
     // resizing of image using Thumbnailator
     public static BufferedImage resize(BufferedImage image, int newWid, int newHei) throws IOException {
         return Thumbnails.of(image).size(newWid, newHei).asBufferedImage();
+    }
+
+    public static void generateImages() {
+        Font[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
+        for (int i = 0; i < 10; i++) {
+            int counter = 0;
+            for (Font font : fonts) {
+                final GraphicsConfiguration config = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+                BufferedImage img = config.createCompatibleImage(200, 200);
+                Graphics g = img.createGraphics();
+                g.setColor(Color.white);
+                g.fillRect(0,0, 200,200);
+                g.setColor(Color.black);
+                System.out.println(font.getName());
+                //if (font != null) {
+                    g.setFont(new Font(font.getName(), 150, 150));
+                    g.drawString(i+"", 50, 150);
+
+                try {
+                        ImageIO.write(img, "JPG", new File("testimgs\\"+i + "_" + counter + ".jpg"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    counter++;
+                //}
+            }
+        }
     }
 }

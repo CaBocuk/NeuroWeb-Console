@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         NeuroWeb web = new NeuroWeb();
         web.open();
-        File folder = new File("Learn images");
+        /*File folder = new File("testimgs");
         List<File> files = Arrays.asList(folder.listFiles());
         files.stream().forEach((image) -> {
             try {
@@ -25,7 +25,7 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
+        });*/
 
         /*folder = new File("Recognize images");
         files = Arrays.asList(folder.listFiles());
@@ -35,8 +35,8 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });*/
-        //web.save();
+        });
+        //web.save();*/
         JFileChooser chooser = new JFileChooser(System.getProperty("user.dir"));
         chooser.showOpenDialog(null);
         File img = chooser.getSelectedFile();
@@ -48,6 +48,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        web.save();
+        //ImageService.generateImages();*/
     }
 }
