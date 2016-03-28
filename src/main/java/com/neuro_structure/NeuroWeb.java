@@ -1,5 +1,7 @@
 package com.neuro_structure;
 
+import com.graphics.ImageService;
+
 import static com.graphics.ImageService.*;
 
 import javax.imageio.ImageIO;
@@ -7,6 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -30,13 +33,15 @@ public class NeuroWeb implements Serializable {
 
 
     public NeuroWeb() {
-        firstNeuroLayer = new ArrayList<InputNeuron>(M);
-        secondNeuroLayer = new ArrayList<Neuron>(M);
-        /*try {
-            image = ImageIO.read(new File("input.jpg"));
-        } catch (IOException e1) {
-            System.out.println("The image was read incorrectly");
-        }*/
+        open();
+    }
+
+    public String readAutoNumber(BufferedImage image){
+        BufferedImage[] images = ImageService.getMappedImage(image, imageSize, imageSize);
+        StringBuffer sb = new StringBuffer();
+        Arrays.asList(images).stream().forEach((img)->sb.append(recognizeImage(img)));
+
+        return sb.toString();
     }
 
     public void learnImage(BufferedImage image, int answer) {
@@ -206,6 +211,7 @@ public class NeuroWeb implements Serializable {
             e.printStackTrace();
             initializeCleanNeurons();
         }
+        secondNeuroLayer = new ArrayList<>();
         for (int i = 0; i < M; i++) {
             secondNeuroLayer.add(new Neuron());
         }

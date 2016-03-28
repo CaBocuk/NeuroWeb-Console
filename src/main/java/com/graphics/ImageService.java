@@ -16,6 +16,7 @@ public class ImageService {
 
     private static final double MAX_BLACK = 0.1; // uses for ImageService.howBlackIsIt();
     // if greater than this value => not black.
+    private static final double MIN_RED = 2;
 
     // getting the color of particular pixel
     public static int[] getPixelRGB(BufferedImage image, int x, int y) {
@@ -41,6 +42,14 @@ public class ImageService {
 
         // if sum is closer to 0 => it seems to be black. If closer to 255 => white.
         return sum / 255;
+    }
+
+    public static double howRedIsIt(int[] rgb) {
+        return (double) rgb[0] / (rgb[1] + rgb[2] + 1);
+    }
+
+    public static boolean isRed(int[] rgb){
+        return howRedIsIt(rgb) > MIN_RED;
     }
 
     public static boolean isBlack(int[] rgb) {
@@ -170,7 +179,7 @@ public class ImageService {
         return ret;
     }*/
 
-    public BufferedImage makeSomeNoise(BufferedImage image) {
+    public static BufferedImage makeSomeNoise(BufferedImage image) {
         double[][] aperture = new double[5][5];
         Random random = new Random();
         for (int i = 0; i < 4; i++) {
@@ -233,18 +242,23 @@ public class ImageService {
         }
         BufferedImage[] ret = new BufferedImage[5];
         image = cutTheFrame(image);
-        ItemType sectionTypes[] = {ItemType.IGNORE, ItemType.IGNORE, ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.LETTER, ItemType.LETTER, ItemType.IGNORE, ItemType.NUMBER};
+        ItemType sectionTypes[] = {/*ItemType.IGNORE, ItemType.IGNORE, */ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.LETTER, ItemType.LETTER, ItemType.IGNORE, ItemType.NUMBER};
 
         int sections = 0;
         int numbers = 0;
         boolean enteredSection = false;
         int curSectionMinX = 0;
-        for (int x = 0; x < image.getWidth() && sections < 10; x++) {
+
+        // TODO: REFACTORING!!! HERE IS KOSTYL!!!
+        for (int x = image.getWidth() / 8; x < image.getWidth() && sections < sectionTypes.length; x++) {
             int blacks = 0;
+            int reds = 0;
             for (int y = 0; y < image.getHeight(); y++) {
                 if (isBlack(getPixelRGB(image, x, y))) {
                     blacks++;
                 }
+                /*if(y == image.getHeight() / 2 && (double) (blacks) / image.getHeight() < 0.01)
+                    continue label;*/
             }
             if ((double) (blacks) / image.getHeight() > 0.05 && !enteredSection) {
                 enteredSection = true;
