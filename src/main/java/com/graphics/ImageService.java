@@ -3,20 +3,21 @@ package com.graphics;
 import net.coobird.thumbnailator.Thumbnails;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
+import java.util.*;
+import java.util.List;
 
 /**
  * Scope of some static methods which are designed to work with input images
  */
 public class ImageService {
 
-    private static final double MAX_BLACK = 0.1; // uses for ImageService.howBlackIsIt();
+    private static final double MAX_BLACK = 0.25; // uses for ImageService.howBlackIsIt();
     // if greater than this value => not black.
-    private static final double MIN_RED = 2;
 
     // getting the color of particular pixel
     public static int[] getPixelRGB(BufferedImage image, int x, int y) {
@@ -44,19 +45,11 @@ public class ImageService {
         return sum / 255;
     }
 
-    public static double howRedIsIt(int[] rgb) {
-        return (double) rgb[0] / (rgb[1] + rgb[2] + 1);
-    }
-
-    public static boolean isRed(int[] rgb){
-        return howRedIsIt(rgb) > MIN_RED;
-    }
-
     public static boolean isBlack(int[] rgb) {
         return howBlackIsIt(rgb) <= MAX_BLACK;
     }
 
-    public static BufferedImage getCutImage(BufferedImage image, int newWid, int newHei) {
+    public static BufferedImage putImageIntoWhiteSquare(BufferedImage image) {
         int wid = image.getWidth();
         int hei = image.getHeight();
 
@@ -81,12 +74,6 @@ public class ImageService {
             }
         }
 
-        /*int ret[] = makeSquaredDimension(minX, minY, maxX, maxY, wid, hei);
-        minX = ret[0];
-        minY = ret[1];
-        maxX = ret[2];
-        maxY = ret[3];*/
-
         int curWid = maxX - minX;
         int curHei = maxY - minY;
         image = image.getSubimage(minX, minY, curWid, curHei);
@@ -110,74 +97,8 @@ public class ImageService {
             image = newImage;
         }
 
-        try {
-            image = resize(image, newWid, newHei);
-        } catch (IOException e) {
-            System.out.println("Couldn't resize the image. Error: " + e.getMessage());
-        }
-
         return image;
     }
-
-    /*private static int[] makeSquaredDimension(int minX, int minY, int maxX, int maxY, int wid, int hei) {
-        int ret[] = new int[4];
-        int curWid = maxX - minX;
-        int curHei = maxY - minY;
-        int diff = Math.abs((curWid - curHei)) / 2;
-
-        if (curWid > curHei) {
-            int a[] = countSquaredCoordinates(minY, maxY, hei, diff);
-            ret[0] = minX;
-            ret[1] = a[0];
-            ret[2] = maxY;
-            ret[3] = a[1];
-            if (Math.abs((curWid - curHei)) % 2 == 1) {
-                if (ret[1] > 0)
-                    ret[1]--;
-                else
-                    ret[3]++;
-            }
-
-        } else if (curWid < curHei) {
-            int a[] = countSquaredCoordinates(minX, maxX, hei, diff);
-            ret[0] = a[0];
-            ret[1] = minY;
-            ret[2] = a[1];
-            ret[3] = maxY;
-            if (Math.abs((curWid - curHei)) % 2 == 1) {
-                if (ret[1] > 0)
-                    ret[0]--;
-                else
-                    ret[2]++;
-            }
-        }
-        return ret;
-    }
-
-    private static int[] countSquaredCoordinates(int min, int max, int hei, int diff) {
-        if (min >= diff && (hei - max) >= diff) {
-            min -= diff;
-            max += diff;
-        } else if (min < diff) {
-            if ((hei - max) >= diff * 2 - min) {
-                max += diff * 2 - min;
-                min = 0;
-            } else {
-                min = 0;
-                max = hei;
-            }
-        } else if ((hei - max) < diff) {
-            if (min >= diff * 2 - (hei - max)) {
-                min -= diff * 2 - (hei - max);
-                max = hei;
-            } else {
-                min = 0;
-                max = hei;
-            }
-        }
-        int ret[] = {min, max};
-        return ret;
-    }*/
 
     public static BufferedImage makeSomeNoise(BufferedImage image) {
         double[][] aperture = new double[5][5];
@@ -223,142 +144,161 @@ public class ImageService {
         return null;
     }
 
-    /**
-     * TODO REFACTORING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     *
-     * @param image
-     * @param newWid
-     * @param newHei
-     */
-    public static BufferedImage[] getMappedImage(BufferedImage image, int newWid, int newHei) {
-        if(image.getHeight() < 100){
-            double coeff = 100. / image.getHeight();
-            try {
-                image = resize(image, (int)(image.getWidth()*coeff), (int)(image.getHeight()*coeff));
-                ImageIO.write(image, "JPG", new File("test_5.jpg"));
-            } catch (IOException e) {
-                e.printStackTrace();
+    private static Boolean[][] getImageBooleanMatrix(BufferedImage image) {
+        Boolean[][] ret = new Boolean[image.getWidth()][image.getHeight()];
+        for (int x = 0; x < image.getWidth(); x++) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                ret[x][y] = isBlack(getPixelRGB(image, x, y));
             }
         }
-        BufferedImage[] ret = new BufferedImage[5];
-        image = cutTheFrame(image);
-        ItemType sectionTypes[] = {/*ItemType.IGNORE, ItemType.IGNORE, */ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.NUMBER, ItemType.LETTER, ItemType.LETTER, ItemType.IGNORE, ItemType.NUMBER};
+        return ret;
+    }
+
+    private static Map.Entry<Point, Point> getSectionCoordinates(Boolean[][] image, int xStart, int yStart, Map.Entry<Point, Point> sectionCorners) {
+        if (image[xStart][yStart]) {
+            if (xStart < sectionCorners.getKey().getX()) {
+                sectionCorners.getKey().setLocation(xStart, sectionCorners.getKey().y);
+            }
+            if (yStart < sectionCorners.getKey().getY()) {
+                sectionCorners.getKey().setLocation(sectionCorners.getKey().x, yStart);
+            }
+            if (xStart > sectionCorners.getValue().getX()) {
+                sectionCorners.getValue().setLocation(xStart, sectionCorners.getValue().y);
+            }
+            if (yStart > sectionCorners.getValue().getY()) {
+                sectionCorners.getValue().setLocation(sectionCorners.getValue().x, yStart);
+            }
+            image[xStart][yStart] = false;
+            if (xStart > 0)
+                sectionCorners = getSectionCoordinates(image, xStart - 1, yStart, sectionCorners);
+            if (yStart > 0)
+                sectionCorners = getSectionCoordinates(image, xStart, yStart - 1, sectionCorners);
+            if (xStart + 1 < image.length)
+                sectionCorners = getSectionCoordinates(image, xStart + 1, yStart, sectionCorners);
+            if (yStart + 1 < image[0].length)
+                sectionCorners = getSectionCoordinates(image, xStart, yStart + 1, sectionCorners);
+        }
+        return sectionCorners;
+    }
+
+    /**
+     * @param image
+     */
+    public static List<BufferedImage> getMappedImage(BufferedImage image) {
+        double coeff = 100. / image.getHeight();
+        List<BufferedImage> ret = new ArrayList<>();
+        try {
+            image = resize(image, (int) (image.getWidth() * coeff), (int) (image.getHeight() * coeff));
+
+            removeNoise(image);
+            image = findAndRemoveBorder(image);
+            ImageIO.write(image, "JPG", new File("test_5.jpg"));
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Couldn't remove the border of the image");
+            e.printStackTrace();
+        }
 
         int sections = 0;
-        int numbers = 0;
-        boolean enteredSection = false;
-        int curSectionMinX = 0;
 
-        // TODO: REFACTORING!!! HERE IS KOSTYL!!!
-        for (int x = image.getWidth() / 8; x < image.getWidth() && sections < sectionTypes.length; x++) {
-            int blacks = 0;
-            int reds = 0;
+        for (int x = 0; x < image.getWidth(); x++) {
+            int curSectionMinX = 0;
+            int curSectionMinY = 0;
+            int blackPixelsCounter = 0;
             for (int y = 0; y < image.getHeight(); y++) {
                 if (isBlack(getPixelRGB(image, x, y))) {
-                    blacks++;
+                    blackPixelsCounter++;
+                    if (curSectionMinY == 0)
+                        curSectionMinY = y;
                 }
-                /*if(y == image.getHeight() / 2 && (double) (blacks) / image.getHeight() < 0.01)
-                    continue label;*/
             }
-            if ((double) (blacks) / image.getHeight() > 0.05 && !enteredSection) {
-                enteredSection = true;
+            if ((double) (blackPixelsCounter) / image.getHeight() > 0.05) {
                 curSectionMinX = x;
-            }
-            if ((double) (blacks) / image.getHeight() <= 0.05 && enteredSection) {
-                enteredSection = false;
-                if (sectionTypes[sections].equals(ItemType.NUMBER)) {
-                    BufferedImage subImg = image.getSubimage(curSectionMinX, 0, x - curSectionMinX, image.getHeight());
-                    subImg = getCutImage(subImg, newWid, newHei);
-                    ret[numbers] = subImg;
+
+                //This entry contains top left and top right corner of image
+                Map.Entry<Point, Point> sectionDimension = new AbstractMap.SimpleEntry<>(new Point(Integer.MAX_VALUE, Integer.MAX_VALUE), new Point(Integer.MIN_VALUE, Integer.MIN_VALUE));
+                sectionDimension = getSectionCoordinates(getImageBooleanMatrix(image), curSectionMinX, curSectionMinY, sectionDimension);
+
+                x = sectionDimension.getValue().x;
+                int x1 = sectionDimension.getKey().x;
+                int y1 = sectionDimension.getKey().y;
+                int w = sectionDimension.getValue().x - sectionDimension.getKey().x;
+                int h = sectionDimension.getValue().y - sectionDimension.getKey().y;
+                if (w > 0 && h > 0) {
+                    BufferedImage subImg = image.getSubimage(x1, y1, w, h);
+                    ret.add(subImg);
+                    sections++;
+
                     try {
-                        ImageIO.write(subImg, "PNG", new File(numbers + ".png"));
+                        ImageIO.write(subImg, "PNG", new File(sections + ".png"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    numbers++;
                 }
-                sections++;
             }
         }
 
         return ret;
     }
 
-    private static BufferedImage cutTheFrame(BufferedImage image) {
+    private static BufferedImage findAndRemoveBorder(BufferedImage image) {
         int wid = image.getWidth();
         int hei = image.getHeight();
 
-        int minX = 0;
-        int minY = 0;
-        int maxX = wid;
-        int maxY = hei;
-
-        boolean foundFrame = false;
+        Boolean[][] imageMatrix = getImageBooleanMatrix(image);
 
         // look for left side of frame
         for (int x = 0; x < wid / 10; x++) {
             if (isBlack(getPixelRGB(image, x, hei / 2))) {
-                foundFrame = true;
-            } else if (!isBlack(getPixelRGB(image, x, hei / 2)) && foundFrame) {
-                minX = x + 1;
-                break;
+                Map.Entry<Point, Point> sectionCorners = new AbstractMap.SimpleEntry<>(new Point(0, 0), new Point(wid, hei));
+                sectionCorners = getSectionCoordinates(imageMatrix, x, hei / 2, sectionCorners);
+
+                int borderWidth = sectionCorners.getValue().x - sectionCorners.getKey().x;
+                int borderHeight = sectionCorners.getValue().y - sectionCorners.getKey().y;
+                boolean isBorder = borderWidth > 0.5 * wid && borderHeight > 0.5 * hei;
+
+                if (isBorder) {
+                    Boolean[][] cur = getImageBooleanMatrix(image);
+                    for (int x1 = 0; x1 < wid; x1++)
+                        for (int y1 = 0; y1 < hei; y1++)
+                            if (imageMatrix[x1][y1] ^ cur[x1][y1])
+                                image.setRGB(x1, y1, Color.white.getRGB());
+                }
             }
         }
-
-        foundFrame = false;
-        // look for upper of the frame
-        for (int y = hei / 2; y > 0; y--) {
-            if (isBlack(getPixelRGB(image, minX, y))) {
-                minY = y + 1;
-                break;
-            }
-        }
-
-        for (int x = wid / 2; x < wid; x++) {
-            if (isBlack(getPixelRGB(image, x, minY))) {
-                maxX = x - 1;
-                break;
-            }
-        }
-
-        for (int y = hei / 2; y < hei; y++) {
-            if (isBlack(getPixelRGB(image, maxX, y))) {
-                maxY = y - 1;
-
-            }
-        }
-
-        return image.getSubimage(minX, minY, maxX - minX, maxY - minY);
+        return image;
     }
 
     // resizing of image using Thumbnailator
+
     public static BufferedImage resize(BufferedImage image, int newWid, int newHei) throws IOException {
         return Thumbnails.of(image).size(newWid, newHei).asBufferedImage();
     }
 
-    public static void generateImages() {
+    public static void generateImages(String folder, int limit, ItemType itemType) {
         Font[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < limit; i++) {
             int counter = 0;
             for (Font font : fonts) {
                 final GraphicsConfiguration config = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
                 BufferedImage img = config.createCompatibleImage(200, 200);
                 Graphics g = img.createGraphics();
                 g.setColor(Color.white);
-                g.fillRect(0,0, 200,200);
+                g.fillRect(0, 0, 200, 200);
                 g.setColor(Color.black);
                 System.out.println(font.getName());
                 //if (font != null) {
-                    g.setFont(new Font(font.getName(), 150, 150));
-                    g.drawString(i+"", 50, 150);
+                g.setFont(new Font(font.getName(), 150, 150));
+                if (itemType == ItemType.DIGIT)
+                    g.drawString(i + "", 50, 150);
+                else if (itemType == ItemType.LETTER)
+                    g.drawString((char) (i + 'A') + "", 50, 150);
 
                 try {
-                        ImageIO.write(img, "JPG", new File("testimgs\\"+i + "_" + counter + ".jpg"));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    counter++;
-                //}
+                    ImageIO.write(img, "JPG", new File(folder + i + "_" + counter + ".jpg"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                counter++;
             }
         }
     }

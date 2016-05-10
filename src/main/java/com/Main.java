@@ -1,6 +1,7 @@
 package com;
 
 import com.graphics.ImageService;
+import com.graphics.ItemType;
 import com.neuro_structure.NeuroWeb;
 
 import javax.imageio.ImageIO;

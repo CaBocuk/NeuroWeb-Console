@@ -1,16 +1,17 @@
 package com.neuro_structure;
 
 import com.graphics.ImageService;
+import com.graphics.ItemType;
+
+import javax.imageio.ImageIO;
 
 import static com.graphics.ImageService.*;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Class describes the full neuro web
@@ -21,68 +22,64 @@ public class NeuroWeb implements Serializable {
      * CONSTANTS
      ***************************************/
     private final int inputImageSize = 100; // size of source
+
     private final int imageSize = 40;
-    private final int N = imageSize * imageSize; // amount of incomes for the web (every pixel)
     private final int M = 10; // amount of numbers to recognize
+    private final int K = 26; // amount of letters to recognize
     private final double E = -(1 / M) / 2; // weight of synapses of the second neuro-layer
     private final double MIN_OUTPUT = 0; // min value of output to be accepted
 
     private BufferedImage image; // source
-    private List<InputNeuron> firstNeuroLayer; // first neuro-layer
-    private List<Neuron> secondNeuroLayer; // second neuro-layer
+    private List<InputNeuron> firstDigitNeuroLayer; // first neuro-layer
+    private List<Neuron> secondDigitNeuroLayer; // second neuro-layer
+
+    private List<InputNeuron> firstLetterNeuroLayer; // first neuro-layer
+    private List<Neuron> secondLetterNeuroLayer; // second neuro-layer
 
 
     public NeuroWeb() {
         open();
     }
 
-    public String readAutoNumber(BufferedImage image){
-        BufferedImage[] images = ImageService.getMappedImage(image, imageSize, imageSize);
-        StringBuffer sb = new StringBuffer();
-        Arrays.asList(images).stream().forEach((img)->sb.append(recognizeImage(img)));
-
-        return sb.toString();
-    }
-
-    public void learnImage(BufferedImage image, int answer) {
-        InputNeuron neuron = firstNeuroLayer.get(answer);
-
-        // resize the image if necessary
-        if (image.getWidth() != imageSize || image.getHeight() != imageSize) {
-            // try {
-            image = getCutImage(image, imageSize, imageSize);
-            //image = resize(image, imageSize, imageSize);
-           /* } catch (IOException e1) {
-                System.out.println("The image was resized incorrectly");
-            }*/
-        }
-
-        // start loop through every pixel in the image
-        for (int x = 0; x < imageSize; x++) {
-            for (int y = 0; y < imageSize; y++) {
-                int[] rgb = getPixelRGB(image, x, y);
-
-                if (isBlack(rgb)) {
-                    neuron.changeWeightBy(x, y, 0.5);
-                } else {
-                    neuron.changeWeightBy(x, y, -0.5);
+    public void generateAndLearn() {
+        ImageService.generateImages("learnDigits\\", M, ItemType.DIGIT);
+        ImageService.generateImages("learnLetters\\", K, ItemType.LETTER);
+        File[] files = (new File("learnDigits\\")).listFiles();
+        for (File file : files) {
+            if (Pattern.matches("[0-9]+_[0-9]+.jpg", file.getName())) {
+                try {
+                    learnItem(ImageIO.read(file), Integer.parseInt(file.getName().split("_")[0]), ItemType.DIGIT);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
-        System.out.println("Learned " + answer);
+        files = (new File("learnLetters\\")).listFiles();
+        for (File file : files) {
+            if (Pattern.matches("[0-9]+_[0-9]+.jpg", file.getName())) {
+                try {
+                    learnItem(ImageIO.read(file), Integer.parseInt(file.getName().split("_")[0]), ItemType.LETTER);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        save();
     }
 
-    public void learnImageExperiment(BufferedImage image, int answer) {
-        InputNeuron neuron = firstNeuroLayer.get(answer);
+    public void learnItem(BufferedImage image, int answer, ItemType itemType) {
+        List<InputNeuron> firstLayer = (itemType == ItemType.DIGIT) ? firstDigitNeuroLayer : firstLetterNeuroLayer; // first neuro-layer
+
+        InputNeuron neuron = firstLayer.get(answer);
 
         // resize the image if necessary
         if (image.getWidth() != imageSize || image.getHeight() != imageSize) {
-            // try {
-            image = getCutImage(image, imageSize, imageSize);
-            //image = resize(image, imageSize, imageSize);
-           /* } catch (IOException e1) {
+            try {
+                image = putImageIntoWhiteSquare(image);
+                image = resize(image, imageSize, imageSize);
+            } catch (IOException e1) {
                 System.out.println("The image was resized incorrectly");
-            }*/
+            }
         }
 
         // start loop through every pixel in the image
@@ -98,32 +95,21 @@ public class NeuroWeb implements Serializable {
             }
         }
         System.out.println("Learned " + answer);
-
-        /*for(int i = 0; i < M; i++) {
-            final GraphicsConfiguration config = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
-            BufferedImage newImage = config.createCompatibleImage(imageSize, imageSize);
-            Graphics2D g = newImage.createGraphics();
-            for (int x = 0; x < imageSize; x++) {
-                for (int y = 0; y < imageSize; y++) {
-                    double coef = (1 - firstNeuroLayer.get(i).getWeightAt(x, y));
-                    coef = coef >= 0 && coef <= 1 ? coef : coef < 0 ? 0 : 1;
-                    int a = (int) (255 * coef);
-                    g.setColor(new Color(a, a, a));
-                    g.drawOval(x, y, 1, 1);
-                }
-            }
-            try {
-                ImageIO.write(newImage, "PNG", new File("img" + i + ".png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }*/
     }
 
-    public int recognizeImage(BufferedImage image) {
-        image = getCutImage(image, imageSize, imageSize);
-        for (int i = 0; i < M; i++) {
-            InputNeuron neuron = firstNeuroLayer.get(i);
+    public int recognizeItem(BufferedImage image, ItemType itemType) {
+        List<InputNeuron> firstLayer = (itemType == ItemType.DIGIT) ? firstDigitNeuroLayer : firstLetterNeuroLayer; // first neuro-layer
+        List<Neuron> secondLayer = (itemType == ItemType.DIGIT) ? secondDigitNeuroLayer : secondLetterNeuroLayer; // second neuro-layer
+        final int items = (itemType == ItemType.DIGIT) ? M : K;
+
+        image = putImageIntoWhiteSquare(image);
+        try {
+            image = resize(image, imageSize, imageSize);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < items; i++) {
+            InputNeuron neuron = firstLayer.get(i);
             neuron.setOutput(0d);
             for (int x = 0; x < imageSize; x++) {
                 for (int y = 0; y < imageSize; y++) {
@@ -134,41 +120,37 @@ public class NeuroWeb implements Serializable {
                     }
                 }
             }
-
-            /*if (neuron.getOutput() >= N / 2) {
-                neuron.setOutput(N / 2);
-            }*/
         }
 
-        double outputs[] = new double[M];
-        for (int i = 0; i < M; i++) {
-            Neuron neuron = secondNeuroLayer.get(i);
-            outputs[i] = firstNeuroLayer.get(i).getOutput();
+        double outputs[] = new double[items];
+        for (int i = 0; i < items; i++) {
+            Neuron neuron = secondLayer.get(i);
+            outputs[i] = firstLayer.get(i).getOutput();
             neuron.setOutput(outputs[i]);
         }
 
         int count = 0;
         boolean allEqual = true;
         do {
-            for (int i = 0; i < M; i++) {
-                Neuron neuron = secondNeuroLayer.get(i);
-                outputs[i] = firstNeuroLayer.get(i).getOutput();
+            for (int i = 0; i < items; i++) {
+                Neuron neuron = secondLayer.get(i);
+                outputs[i] = firstLayer.get(i).getOutput();
                 neuron.setSum(0);
             }
 
-            for (int i = 0; i < M; i++) {
-                for (int j = 0; j < M; j++) {
+            for (int i = 0; i < items; i++) {
+                for (int j = 0; j < items; j++) {
                     if (i == j) {
-                        secondNeuroLayer.get(j).changeSumBy(secondNeuroLayer.get(i).getOutput());
+                        secondLayer.get(j).changeSumBy(secondLayer.get(i).getOutput());
                     } else {
-                        secondNeuroLayer.get(j).changeSumBy(secondNeuroLayer.get(i).getOutput() * this.E);
+                        secondLayer.get(j).changeSumBy(secondLayer.get(i).getOutput() * this.E);
                     }
                 }
             }
 
-            for (int i = 0; i < M; i++) {
-                secondNeuroLayer.get(i).setOutput(secondNeuroLayer.get(i).getSum());
-                if (outputs[i] != secondNeuroLayer.get(i).getOutput())
+            for (int i = 0; i < items; i++) {
+                secondLayer.get(i).setOutput(secondLayer.get(i).getSum());
+                if (outputs[i] != secondLayer.get(i).getOutput())
                     allEqual = false;
             }
 
@@ -177,9 +159,9 @@ public class NeuroWeb implements Serializable {
 
         double max = Double.MIN_VALUE;
         int index = -1;
-        for (int i = 0; i < M; i++) {
-            if (secondNeuroLayer.get(i).getOutput() > max) {
-                max = secondNeuroLayer.get(i).getOutput();
+        for (int i = 0; i < items; i++) {
+            if (secondLayer.get(i).getOutput() > max) {
+                max = secondLayer.get(i).getOutput();
                 index = i;
             }
         }
@@ -188,11 +170,17 @@ public class NeuroWeb implements Serializable {
     }
 
     public void initializeCleanNeurons() {
-        firstNeuroLayer = new ArrayList<InputNeuron>();
-        secondNeuroLayer = new ArrayList<Neuron>();
+        firstDigitNeuroLayer = new ArrayList<InputNeuron>();
+        secondDigitNeuroLayer = new ArrayList<Neuron>();
+        firstLetterNeuroLayer = new ArrayList<InputNeuron>();
+        secondLetterNeuroLayer = new ArrayList<Neuron>();
         for (int i = 0; i < M; i++) {
-            firstNeuroLayer.add(new InputNeuron(imageSize, imageSize));
-            secondNeuroLayer.add(new Neuron());
+            firstDigitNeuroLayer.add(new InputNeuron(imageSize, imageSize));
+            secondDigitNeuroLayer.add(new Neuron());
+        }
+        for (int i = 0; i < K; i++) {
+            firstLetterNeuroLayer.add(new InputNeuron(imageSize, imageSize));
+            secondLetterNeuroLayer.add(new Neuron());
         }
     }
 
@@ -200,7 +188,8 @@ public class NeuroWeb implements Serializable {
     public void open() {
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("input.nwf"));
-            firstNeuroLayer = (List<InputNeuron>) ois.readObject();
+            firstDigitNeuroLayer = (List<InputNeuron>) ois.readObject();
+            firstLetterNeuroLayer = (List<InputNeuron>) ois.readObject();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             initializeCleanNeurons();
@@ -211,9 +200,13 @@ public class NeuroWeb implements Serializable {
             e.printStackTrace();
             initializeCleanNeurons();
         }
-        secondNeuroLayer = new ArrayList<>();
+        secondDigitNeuroLayer = new ArrayList<>();
+        secondLetterNeuroLayer = new ArrayList<>();
         for (int i = 0; i < M; i++) {
-            secondNeuroLayer.add(new Neuron());
+            secondDigitNeuroLayer.add(new Neuron());
+        }
+        for (int i = 0; i < K; i++) {
+            secondLetterNeuroLayer.add(new Neuron());
         }
     }
 
@@ -222,9 +215,14 @@ public class NeuroWeb implements Serializable {
         ObjectOutputStream ous = null;
         try {
             ous = new ObjectOutputStream(new FileOutputStream("input.nwf"));
-            ous.writeObject(firstNeuroLayer);
+            ous.writeObject(firstDigitNeuroLayer);
+            ous.writeObject(firstLetterNeuroLayer);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getImageSize() {
+        return imageSize;
     }
 }
