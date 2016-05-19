@@ -6,6 +6,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -16,7 +18,7 @@ import java.util.List;
  */
 public class ImageService {
 
-    private static final double MAX_BLACK = 0.25; // uses for ImageService.howBlackIsIt();
+    private static final double MAX_BLACK = 0.3; // uses for ImageService.howBlackIsIt();
     // if greater than this value => not black.
 
     // getting the color of particular pixel
@@ -30,18 +32,16 @@ public class ImageService {
         return rgb;
     }
 
-    // trying to investigate how black is the color
+    // метод для определения степени "черноты" цвета
     public static double howBlackIsIt(int[] rgb) {
-        double[] magicCoefficients = {0.2126, 0.7152, 0.0722}; // I don't know why they are like this.
-        // Link: http://stackoverflow.com/questions/9780632/how-do-i-determine-if-a-color-is-closer-to-white-or-black
-
+        double[] magicCoefficients = {0.2126, 0.7152, 0.0722}; // коэффициенты для расчета итоговой суммы
         double sum = 0;
 
         for (int i = 0; i < 3; i++) {
             sum += magicCoefficients[i] * rgb[i];
         }
 
-        // if sum is closer to 0 => it seems to be black. If closer to 255 => white.
+        // если сумма ближе к нулю - цвет черный. Если ближе к 255 - цвет белый
         return sum / 255;
     }
 
@@ -140,8 +140,38 @@ public class ImageService {
     }
 
     public static BufferedImage removeNoise(BufferedImage image) {
-        //TODO
-        return null;
+        /*// проходим по каждому пикселю изображения
+        for (int x = 0; x < image.getWidth(); x++) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                if(isBlack(getPixelRGB(image,x,y))){
+                    // если текущий пиксель черный
+                    // проверяем соседние пиксели на то, являются ли они черными
+                    int neighbourCounter = 0;
+                    if(x > 0 && isBlack(getPixelRGB(image,x-1,y)))
+                        neighbourCounter++;
+                    if(x > 0 && y>0 && isBlack(getPixelRGB(image,x-1,y-1)))
+                        neighbourCounter++;
+                    if(y > 0 && isBlack(getPixelRGB(image,x,y-1)))
+                        neighbourCounter++;
+                    if(x < image.getWidth() && y > 0 && isBlack(getPixelRGB(image,x+1,y-1)))
+                        neighbourCounter++;
+                    if(x < image.getWidth() && isBlack(getPixelRGB(image,x+1,y)))
+                        neighbourCounter++;
+                    if(x < image.getWidth() && y < image.getHeight() && isBlack(getPixelRGB(image,x+1,y+1)))
+                        neighbourCounter++;
+                    if(y < image.getHeight() && isBlack(getPixelRGB(image,x,y+1)))
+                        neighbourCounter++;
+                    if(x > 0 && y < image.getHeight() && isBlack(getPixelRGB(image,x-1,y+1)))
+                        neighbourCounter++;
+
+                    if(neighbourCounter < 2){
+                        // если рядом с текущим пикселем менее двух черных, признаем его шумом и окрашиваем в белый цвет.
+                        image.setRGB(x,y,Color.white.getRGB());
+                    }
+                }
+            }
+        }*/
+        return image;
     }
 
     private static Boolean[][] getImageBooleanMatrix(BufferedImage image) {
@@ -187,35 +217,40 @@ public class ImageService {
     public static List<BufferedImage> getMappedImage(BufferedImage image) {
         double coeff = 100. / image.getHeight();
         List<BufferedImage> ret = new ArrayList<>();
+        // готовим изображение к обработке
         try {
+            // ресайзинг
             image = resize(image, (int) (image.getWidth() * coeff), (int) (image.getHeight() * coeff));
 
-            removeNoise(image);
-            image = findAndRemoveBorder(image);
+            removeNoise(image); // шумоподавление
+            image = findAndRemoveBorder(image); // обнаружение и удаление рамки вокруг номера
             ImageIO.write(image, "JPG", new File("test_5.jpg"));
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Couldn't remove the border of the image");
+            JOptionPane.showMessageDialog(null, "Не удалось удалить рамку из изображения");
             e.printStackTrace();
         }
 
-        int sections = 0;
+        int sections = 0; // количество найденных обособленных элементов
 
-        for (int x = 0; x < image.getWidth(); x++) {
+        for (int x = 0; x < image.getWidth(); x++) { // пробег слева направо
             int curSectionMinX = 0;
             int curSectionMinY = 0;
             int blackPixelsCounter = 0;
-            for (int y = 0; y < image.getHeight(); y++) {
+            for (int y = 0; y < image.getHeight(); y++) { // подсчитываем количество черных пикселей в конкретном столбце
                 if (isBlack(getPixelRGB(image, x, y))) {
                     blackPixelsCounter++;
                     if (curSectionMinY == 0)
                         curSectionMinY = y;
                 }
             }
-            if ((double) (blackPixelsCounter) / image.getHeight() > 0.05) {
+            if ((double) (blackPixelsCounter) / image.getHeight() > 0.05) { // проверяем, есть ли скопление пикселей
                 curSectionMinX = x;
 
                 //This entry contains top left and top right corner of image
                 Map.Entry<Point, Point> sectionDimension = new AbstractMap.SimpleEntry<>(new Point(Integer.MAX_VALUE, Integer.MAX_VALUE), new Point(Integer.MIN_VALUE, Integer.MIN_VALUE));
+                // проходим рекурсивно от текущего черного пикселя и ищем координаты
+                // верхнего левого и правого нижнего угла прямоугольника, описывающего
+                // текущий обособленный элемент
                 sectionDimension = getSectionCoordinates(getImageBooleanMatrix(image), curSectionMinX, curSectionMinY, sectionDimension);
 
                 x = sectionDimension.getValue().x;
@@ -224,7 +259,9 @@ public class ImageService {
                 int w = sectionDimension.getValue().x - sectionDimension.getKey().x;
                 int h = sectionDimension.getValue().y - sectionDimension.getKey().y;
                 if (w > 0 && h > 0) {
+                    // выделяем найденную область
                     BufferedImage subImg = image.getSubimage(x1, y1, w, h);
+                    // добавляем в список найденных
                     ret.add(subImg);
                     sections++;
 
@@ -238,6 +275,13 @@ public class ImageService {
         }
 
         return ret;
+    }
+
+    public static BufferedImage copyImage(BufferedImage bi) {
+        ColorModel cm = bi.getColorModel();
+        boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+        WritableRaster raster = bi.copyData(null);
+        return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
     }
 
     private static BufferedImage findAndRemoveBorder(BufferedImage image) {
@@ -273,6 +317,12 @@ public class ImageService {
     public static BufferedImage resize(BufferedImage image, int newWid, int newHei) throws IOException {
         return Thumbnails.of(image).size(newWid, newHei).asBufferedImage();
     }
+    public static BufferedImage resizeWidth(BufferedImage image, int newWid) throws IOException {
+        return Thumbnails.of(image).size(newWid, image.getHeight() * newWid / image.getHeight()).asBufferedImage();
+    }
+    public static BufferedImage resizeHeight(BufferedImage image, int newHei) throws IOException {
+        return Thumbnails.of(image).size(image.getWidth() * newHei / image.getHeight(), newHei).asBufferedImage();
+    }
 
     public static void generateImages(String folder, int limit, ItemType itemType) {
         Font[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
@@ -286,7 +336,6 @@ public class ImageService {
                 g.fillRect(0, 0, 200, 200);
                 g.setColor(Color.black);
                 System.out.println(font.getName());
-                //if (font != null) {
                 g.setFont(new Font(font.getName(), 150, 150));
                 if (itemType == ItemType.DIGIT)
                     g.drawString(i + "", 50, 150);

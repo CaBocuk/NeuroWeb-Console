@@ -72,29 +72,29 @@ public class NeuroWeb implements Serializable {
 
         InputNeuron neuron = firstLayer.get(answer);
 
-        // resize the image if necessary
+        // изменить размер изображения, если это требуется
         if (image.getWidth() != imageSize || image.getHeight() != imageSize) {
             try {
-                image = putImageIntoWhiteSquare(image);
+                image = putImageIntoWhiteSquare(image); // если изображение не квадратное - дорисовать вокруг него белый квадрат
                 image = resize(image, imageSize, imageSize);
             } catch (IOException e1) {
-                System.out.println("The image was resized incorrectly");
+                System.out.println("Не получилось изменить размер изображения");
             }
         }
 
-        // start loop through every pixel in the image
+        // цикл через каждый пиксель изображения
         for (int x = 0; x < imageSize; x++) {
             for (int y = 0; y < imageSize; y++) {
                 int[] rgb = getPixelRGB(image, x, y);
 
-                if (isBlack(rgb)) {
-                    neuron.increaseWeight(x, y);
+                if (isBlack(rgb)) { // если текущий пиксель черный
+                    neuron.increaseWeight(x, y); // увеличиваем вес соответствующего нейрона первого слоя
                 } else {
-                    neuron.decreaseWeight(x, y);
+                    neuron.decreaseWeight(x, y); // уменьшаем вес
                 }
             }
         }
-        System.out.println("Learned " + answer);
+        System.out.println("Выучили " + answer);
     }
 
     public int recognizeItem(BufferedImage image, ItemType itemType) {

@@ -2,66 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f208af06-a63b-4111-a9e9-1985d1c503b5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/0.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/0_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/0_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/0_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/1.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/1_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/1_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/1_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/2.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/2_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/2_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/2_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/3.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/3_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/3_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/3_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/4.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/4_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/4_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/4_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/5.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/5_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/5_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/5_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/6.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/6_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/6_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/6_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/7.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/7_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/7_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/7_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/8.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/8_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/8_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/8_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/9.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/9_a.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/9_b.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Learn images/9_c.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Recognize images/1_d.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Recognize images/1_e.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Recognize images/1_f.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Recognize images/2_d.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Recognize images/2_e.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Recognize images/9_d.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Recognize images/9_e.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Recognize images/9_f.bmp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.png" afterPath="$PROJECT_DIR$/1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2.png" afterPath="$PROJECT_DIR$/2.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/3.png" afterPath="$PROJECT_DIR$/3.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/4.png" afterPath="$PROJECT_DIR$/4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input.nwf" afterPath="$PROJECT_DIR$/input.nwf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_5.jpg" afterPath="$PROJECT_DIR$/test_5.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/GUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/GUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/graphics/ImageService.java" afterPath="$PROJECT_DIR$/src/main/java/com/graphics/ImageService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/graphics/ItemType.java" afterPath="$PROJECT_DIR$/src/main/java/com/graphics/ItemType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/neuro_structure/InputNeuron.java" afterPath="$PROJECT_DIR$/src/main/java/com/neuro_structure/InputNeuron.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/neuro_structure/NeuroWeb.java" afterPath="$PROJECT_DIR$/src/main/java/com/neuro_structure/NeuroWeb.java" />
     </list>
     <ignored path="NeuroWeb Console.iws" />
@@ -79,6 +29,13 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="NeuroWeb Console" />
@@ -88,26 +45,34 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+            <state relative-caret-position="211">
+              <caret line="374" column="21" selection-start-line="374" selection-start-column="21" selection-end-line="374" selection-end-column="21" />
               <folding>
-                <marker date="1462893993321" expanded="true" signature="3583:7296" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1462893993321" expanded="true" signature="7308:7699" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#0#15684#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <marker date="1463695231164" expanded="true" signature="5369:11434" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1463695231164" expanded="true" signature="11778:12171" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GUI.jfd" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state paletteWidth="0" propertiesWidth="0" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ImageService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/graphics/ImageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="196" column="88" selection-start-line="196" selection-start-column="88" selection-end-line="196" selection-end-column="88" />
+            <state relative-caret-position="340">
+              <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#putImageIntoWhiteSquare#0;class#ImageService#0" expanded="false" />
                 <element signature="method#makeSomeNoise#0;class#ImageService#0" expanded="false" />
-                <element signature="method#removeNoise#0;class#ImageService#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -116,9 +81,25 @@
       <file leaf-file-name="InputNeuron.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/InputNeuron.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="663">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#682#683#0" expanded="false" />
+                <element signature="e#720#721#0" expanded="false" />
+                <element signature="e#766#767#0" expanded="false" />
+                <element signature="e#802#803#0" expanded="false" />
+                <element signature="e#839#840#0" expanded="false" />
+                <element signature="e#875#876#0" expanded="false" />
+                <element signature="e#908#909#0" expanded="false" />
+                <element signature="e#939#940#0" expanded="false" />
+                <element signature="e#1539#1540#0" expanded="false" />
+                <element signature="e#1568#1569#0" expanded="false" />
+                <element signature="e#1612#1613#0" expanded="false" />
+                <element signature="e#1648#1649#0" expanded="false" />
+                <element signature="e#1696#1697#0" expanded="false" />
+                <element signature="e#1728#1729#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,9 +117,11 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-              <folding />
+            <state relative-caret-position="153">
+              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,9 +129,21 @@
       <file leaf-file-name="Neuron.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/Neuron.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="323">
+              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#349#350#0" expanded="false" />
+                <element signature="e#378#379#0" expanded="false" />
+                <element signature="e#422#423#0" expanded="false" />
+                <element signature="e#458#459#0" expanded="false" />
+                <element signature="e#503#504#0" expanded="false" />
+                <element signature="e#532#533#0" expanded="false" />
+                <element signature="e#562#563#0" expanded="false" />
+                <element signature="e#588#589#0" expanded="false" />
+                <element signature="e#623#624#0" expanded="false" />
+                <element signature="e#653#654#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,19 +151,26 @@
       <file leaf-file-name="NeuroWeb.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/NeuroWeb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="45" column="19" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="19" />
+            <state relative-caret-position="170">
+              <caret line="171" column="16" selection-start-line="171" selection-start-column="16" selection-end-line="171" selection-end-column="16" />
               <folding>
-                <element signature="e#1268#1269#0" expanded="true" />
-                <element signature="e#1290#1291#0" expanded="true" />
-                <element signature="e#8167#8168#0" expanded="true" />
-                <element signature="e#8199#8200#0" expanded="true" />
+                <element signature="method#generateAndLearn#0;class#NeuroWeb#0" expanded="false" />
+                <element signature="method#learnItem#0;class#NeuroWeb#0" expanded="false" />
+                <element signature="method#recognizeItem#0;class#NeuroWeb#0" expanded="false" />
+                <element signature="method#save#0;class#NeuroWeb#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -189,17 +191,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/GUI.jfd" />
         <option value="$PROJECT_DIR$/src/main/java/com/Ford_Falkerson.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Lab5.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Recognizer.form" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Recognizer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/neuro_structure/InputNeuron.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/neuro_structure/NeuroWeb.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/GUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/graphics/ImageService.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -239,8 +245,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -311,6 +315,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="GUI.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NeuroWeb Console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NeuroWeb Console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="neuro_structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NeuroWeb Console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NeuroWeb Console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="graphics" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -318,6 +382,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -770,7 +836,14 @@
       <workItem from="1459184674121" duration="15641000" />
       <workItem from="1461003562786" duration="3357000" />
       <workItem from="1462794784113" duration="18373000" />
-      <workItem from="1462872327502" duration="20152000" />
+      <workItem from="1462872327502" duration="20759000" />
+      <workItem from="1463222746088" duration="88000" />
+      <workItem from="1463303293329" duration="573000" />
+      <workItem from="1463304212757" duration="1101000" />
+      <workItem from="1463305418858" duration="2435000" />
+      <workItem from="1463307910460" duration="16450000" />
+      <workItem from="1463604146817" duration="6335000" />
+      <workItem from="1463685228662" duration="9902000" />
     </task>
     <task id="LOCAL-00001" summary="GUI + fixed small images">
       <created>1459200645758</created>
@@ -783,7 +856,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59566000" />
+    <option name="totallyTimeSpent" value="97057000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -796,15 +869,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3270525" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33243608" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252688" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27725437" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19344473" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -813,7 +884,9 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -833,7 +906,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -846,13 +919,281 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/graphics/ItemType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/Neuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#349#350#0" expanded="false" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#422#423#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#503#504#0" expanded="false" />
+            <element signature="e#532#533#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+            <element signature="e#588#589#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#653#654#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/NeuroWeb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="19" />
+          <folding>
+            <element signature="method#generateAndLearn#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#learnItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#recognizeItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#save#0;class#NeuroWeb#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Recognizer.form" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Recognizer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15684#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1463695231164" expanded="true" signature="5369:11434" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1463695231164" expanded="true" signature="11778:12171" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#15684#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1463695231164" expanded="true" signature="5369:11434" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1463695231164" expanded="true" signature="11778:12171" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/graphics/ImageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#putImageIntoWhiteSquare#0;class#ImageService#0" expanded="false" />
+            <element signature="method#makeSomeNoise#0;class#ImageService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/InputNeuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#682#683#0" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#766#767#0" expanded="false" />
+            <element signature="e#802#803#0" expanded="false" />
+            <element signature="e#839#840#0" expanded="false" />
+            <element signature="e#875#876#0" expanded="false" />
+            <element signature="e#908#909#0" expanded="false" />
+            <element signature="e#939#940#0" expanded="false" />
+            <element signature="e#1539#1540#0" expanded="false" />
+            <element signature="e#1568#1569#0" expanded="false" />
+            <element signature="e#1612#1613#0" expanded="false" />
+            <element signature="e#1648#1649#0" expanded="false" />
+            <element signature="e#1696#1697#0" expanded="false" />
+            <element signature="e#1728#1729#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/graphics/ItemType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/Neuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#349#350#0" expanded="false" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#422#423#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#503#504#0" expanded="false" />
+            <element signature="e#532#533#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+            <element signature="e#588#589#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#653#654#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/NeuroWeb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="19" />
+          <folding>
+            <element signature="method#generateAndLearn#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#learnItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#recognizeItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#save#0;class#NeuroWeb#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#15684#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1463695231164" expanded="true" signature="5369:11434" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1463695231164" expanded="true" signature="11778:12171" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/graphics/ImageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#putImageIntoWhiteSquare#0;class#ImageService#0" expanded="false" />
+            <element signature="method#makeSomeNoise#0;class#ImageService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/InputNeuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#682#683#0" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#766#767#0" expanded="false" />
+            <element signature="e#802#803#0" expanded="false" />
+            <element signature="e#839#840#0" expanded="false" />
+            <element signature="e#875#876#0" expanded="false" />
+            <element signature="e#908#909#0" expanded="false" />
+            <element signature="e#939#940#0" expanded="false" />
+            <element signature="e#1539#1540#0" expanded="false" />
+            <element signature="e#1568#1569#0" expanded="false" />
+            <element signature="e#1612#1613#0" expanded="false" />
+            <element signature="e#1648#1649#0" expanded="false" />
+            <element signature="e#1696#1697#0" expanded="false" />
+            <element signature="e#1728#1729#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/graphics/ItemType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/Neuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#349#350#0" expanded="false" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#422#423#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#503#504#0" expanded="false" />
+            <element signature="e#532#533#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+            <element signature="e#588#589#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#653#654#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/NeuroWeb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="19" />
+          <folding>
+            <element signature="method#generateAndLearn#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#learnItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#recognizeItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#save#0;class#NeuroWeb#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
-            <marker date="1462893993321" expanded="true" signature="3583:7296" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1462893993321" expanded="true" signature="7308:7699" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#0#15684#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1463695231164" expanded="true" signature="5369:11434" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1463695231164" expanded="true" signature="11778:12171" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -865,7 +1206,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#putImageIntoWhiteSquare#0;class#ImageService#0" expanded="false" />
             <element signature="method#makeSomeNoise#0;class#ImageService#0" expanded="false" />
-            <element signature="method#removeNoise#0;class#ImageService#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -874,7 +1214,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -883,10 +1225,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1268#1269#0" expanded="true" />
-            <element signature="e#1290#1291#0" expanded="true" />
-            <element signature="e#8167#8168#0" expanded="true" />
-            <element signature="e#8199#8200#0" expanded="true" />
+            <element signature="method#generateAndLearn#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#learnItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#recognizeItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#save#0;class#NeuroWeb#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -897,8 +1239,10 @@
         <state relative-caret-position="578">
           <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
           <folding>
-            <marker date="1462893993321" expanded="true" signature="3583:7296" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1462893993321" expanded="true" signature="7308:7699" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#0#15684#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1463695231164" expanded="true" signature="5369:11434" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1463695231164" expanded="true" signature="11778:12171" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -911,7 +1255,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#putImageIntoWhiteSquare#0;class#ImageService#0" expanded="false" />
             <element signature="method#makeSomeNoise#0;class#ImageService#0" expanded="false" />
-            <element signature="method#removeNoise#0;class#ImageService#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -920,7 +1263,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -929,10 +1274,10 @@
         <state relative-caret-position="3366">
           <caret line="210" column="32" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
           <folding>
-            <element signature="e#1268#1269#0" expanded="true" />
-            <element signature="e#1290#1291#0" expanded="true" />
-            <element signature="e#8167#8168#0" expanded="true" />
-            <element signature="e#8199#8200#0" expanded="true" />
+            <element signature="method#generateAndLearn#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#learnItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#recognizeItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#save#0;class#NeuroWeb#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -942,8 +1287,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1462893993321" expanded="true" signature="3583:7296" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1462893993321" expanded="true" signature="7308:7699" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#0#15684#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1463695231164" expanded="true" signature="5369:11434" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1463695231164" expanded="true" signature="11778:12171" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -956,7 +1303,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#putImageIntoWhiteSquare#0;class#ImageService#0" expanded="false" />
             <element signature="method#makeSomeNoise#0;class#ImageService#0" expanded="false" />
-            <element signature="method#removeNoise#0;class#ImageService#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -965,7 +1311,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -974,10 +1322,10 @@
         <state relative-caret-position="3366">
           <caret line="210" column="32" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
           <folding>
-            <element signature="e#1268#1269#0" expanded="true" />
-            <element signature="e#1290#1291#0" expanded="true" />
-            <element signature="e#8167#8168#0" expanded="true" />
-            <element signature="e#8199#8200#0" expanded="true" />
+            <element signature="method#generateAndLearn#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#learnItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#recognizeItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#save#0;class#NeuroWeb#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -986,7 +1334,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1016,6 +1366,74 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Recognizer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Recognizer.form" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state paletteWidth="0" propertiesWidth="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/InputNeuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#682#683#0" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#766#767#0" expanded="false" />
+            <element signature="e#802#803#0" expanded="false" />
+            <element signature="e#839#840#0" expanded="false" />
+            <element signature="e#875#876#0" expanded="false" />
+            <element signature="e#908#909#0" expanded="false" />
+            <element signature="e#939#940#0" expanded="false" />
+            <element signature="e#1539#1540#0" expanded="false" />
+            <element signature="e#1568#1569#0" expanded="false" />
+            <element signature="e#1612#1613#0" expanded="false" />
+            <element signature="e#1648#1649#0" expanded="false" />
+            <element signature="e#1696#1697#0" expanded="false" />
+            <element signature="e#1728#1729#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/Neuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#349#350#0" expanded="false" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#422#423#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#503#504#0" expanded="false" />
+            <element signature="e#532#533#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+            <element signature="e#588#589#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#653#654#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/src.zip!/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="854" column="56" selection-start-line="854" selection-start-column="56" selection-end-line="854" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -1028,68 +1446,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/Neuron.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/InputNeuron.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/neuro_structure/NeuroWeb.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="45" column="19" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="19" />
+        <state relative-caret-position="170">
+          <caret line="171" column="16" selection-start-line="171" selection-start-column="16" selection-end-line="171" selection-end-column="16" />
           <folding>
-            <element signature="e#1268#1269#0" expanded="true" />
-            <element signature="e#1290#1291#0" expanded="true" />
-            <element signature="e#8167#8168#0" expanded="true" />
-            <element signature="e#8199#8200#0" expanded="true" />
+            <element signature="method#generateAndLearn#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#learnItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#recognizeItem#0;class#NeuroWeb#0" expanded="false" />
+            <element signature="method#save#0;class#NeuroWeb#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state paletteWidth="0" propertiesWidth="0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+        <state relative-caret-position="211">
+          <caret line="374" column="21" selection-start-line="374" selection-start-column="21" selection-end-line="374" selection-end-column="21" />
           <folding>
-            <marker date="1462893993321" expanded="true" signature="3583:7296" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1462893993321" expanded="true" signature="7308:7699" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#0#15684#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1463695231164" expanded="true" signature="5369:11434" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1463695231164" expanded="true" signature="11778:12171" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/graphics/ImageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="196" column="88" selection-start-line="196" selection-start-column="88" selection-end-line="196" selection-end-column="88" />
+        <state relative-caret-position="340">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#putImageIntoWhiteSquare#0;class#ImageService#0" expanded="false" />
             <element signature="method#makeSomeNoise#0;class#ImageService#0" expanded="false" />
-            <element signature="method#removeNoise#0;class#ImageService#0" expanded="false" />
           </folding>
         </state>
       </provider>

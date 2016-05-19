@@ -40,10 +40,10 @@ public class InputNeuron implements Serializable{
         learnedImages++;
     }
 
-    public void increaseWeight(int x, int y){
+    public void increaseWeight(int x, int y){ // функция, увеличивающая значение нейрона
         double weight = weights[x][y];
         weight *= learnedImages++;
-        weight += LEARN_MAX;
+        weight += LEARN_MAX; // значение LEARN_MAX = 1 и означает максимальную вероятность пикселя быть черным
         weight /= learnedImages;
         weights[x][y] = weight;
     }
